@@ -1,0 +1,21 @@
+{
+    "name": "toir427/yii2-nestable",
+    "description": "Yii2 Nestable",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","widget","nestable"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "toir427",
+            "email": "toir427@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "toir427\\nestable\\": ""
+        }
+    }
+}
