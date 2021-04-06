@@ -32,14 +32,10 @@ jobs:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
                   restore-keys: ${{ runner.os }}-composer-
+            - name: Install fxp/composer-asset-plugin
+              run: composer global require "fxp/composer-asset-plugin:~1.4"
             - name: Install dependencies
               run: composer update $DEFAULT_COMPOSER_FLAGS
-            - name: Run unit tests with coverage
-              run: vendor/bin/phpunit --verbose --coverage-clover=coverage.clover --colors=always
-              if: matrix.php == '7.1'
-            - name: Run unit tests without coverage
-              run: vendor/bin/phpunit --verbose --colors=always
-              if: matrix.php != '7.1'
             - name: Upload code coverage
               run: |
                   wget https://scrutinizer-ci.com/ocular.phar
