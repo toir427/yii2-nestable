@@ -32,8 +32,6 @@ jobs:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
                   restore-keys: ${{ runner.os }}-composer-
-            - name: Install fxp/composer-asset-plugin
-              run: composer global require fxp/composer-asset-plugin
             - name: Install dependencies
               run: composer update $DEFAULT_COMPOSER_FLAGS
             - name: Upload code coverage
